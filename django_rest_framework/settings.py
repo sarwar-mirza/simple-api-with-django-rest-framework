@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',   # install rest_framework
     'core',         # inside create new application
     'enroll',       # inside create new application
     'api',          # inside create new application

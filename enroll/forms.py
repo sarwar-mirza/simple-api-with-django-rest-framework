@@ -21,3 +21,14 @@ class BusinessAutomationInterneForm(forms.ModelForm):
             'city': forms.TextInput(attrs={"class": "form-control", "placeholder": "City"}),
             'email': forms.EmailInput(attrs={"class": "form-control", "placeholder": "Email"}),
         }
+        
+        
+        error_messages = {
+            'first_name': {'required': 'Enter your first name'},
+            'last_name': {'required': 'Enter your last name'},
+            'dep': {'required': 'Enter your Department'},
+            'city': {'required': 'Enter your city'},
+            'email': {'required': 'Enter your email'},
+        }
+
+

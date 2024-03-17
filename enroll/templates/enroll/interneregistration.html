@@ -1,0 +1,44 @@
+<!-- Inheritance parent template -->
+{% extends "core/base.html" %}
+
+<!-- inherit title block tag -->
+{% block title %}Home{% endblock title %}
+
+
+<!-- inherit content block tag -->
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 offset-2">
+            <h4 class="text-center alert alert-info mt-2">Registration Form</h4>
+
+            <form action="" method="POST" novalidate class="shadow p-5 mt-3">
+                {% csrf_token %}
+
+                {% for fm in form %}
+                  <div class="form-group fw-bold mt-1">
+                    {{fm.label_tag}} {{fm}} <small class="text-warning">{{fm.errors|striptags}}</small>
+                  </div>
+                {% endfor %}
+
+
+                <input type="submit" class="btn btn-primary mt-3" value="submit">
+
+                <!-- non field errors -->
+                {% if form.non_field_errors %}
+                  {% for error in form.non_field_errors %}
+                    <p class="text-danger">{{error}}</p>
+                  {% endfor %}
+                {% endif %}
+            </form>
+
+            <!-- message framework -->
+            {% if messages %}
+            {% for message in messages  %}
+              <p {% if message.tags %} class="alert alert-{{message.tags}} mt-2" {% endif %}>{{message}}</p>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock content %}
